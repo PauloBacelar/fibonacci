@@ -21,14 +21,25 @@ def generate_fibonacci_list(nth_number):
     return fibonacci_list
 
 
+def get_nth_number(fibonacci_list, nth_number):
+    return fibonacci_list[nth_number - 1]
+
+
+def show_nth_number(nth, nth_number):
+    print(f"\n{nth}th position in Fibonacci Sequence is the number {nth_number}\n")
+
+
 def main():
-    nth_number_str = ask_for_number()
-    if not check_number(nth_number_str):
+    nth_str = ask_for_number()
+    if not check_number(nth_str):
         show_error_message()
         main()
 
-    nth_number = int(nth_number_str)
-    generate_fibonacci_list(nth_number)
+    nth = int(nth_str)
+    fibonacci_list = generate_fibonacci_list(nth)
+
+    nth_number = get_nth_number(fibonacci_list, nth)
+    show_nth_number(nth, nth_number)
 
 
 # Main
